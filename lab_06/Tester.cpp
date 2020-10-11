@@ -39,49 +39,49 @@ if(inFile.is_open() and outfile.is_open())
 *  @Pre  The current BST as inpu and write to output file
 *  @Post Prints all the elements of BST in InOrder to output file
 */  
-   cout<<"----------------nmd1----------------------\n";
+   //cout<<"----------------nmd1----------------------\n";
 
    BST.printTreeInorder(outfile);
-   cout<<"----------------nmd2----------------------\n";
+   //cout<<"----------------nmd2----------------------\n";
    outfile <<"\n";
 /**
 *  @Pre  The current BST as inpu and write to output file
 *  @Post Prints minimum element of BST to output file
 */ 
-  cout<<"----------------nmd3----------------------\n";
+  //cout<<"----------------nmd3----------------------\n";
    outfile <<BST.findMin() <<"\n";
-   cout<<"----------------nmd4----------------------\n";
+   //cout<<"----------------nmd4----------------------\n";
 /**
 *  @Pre  The current BST as inpu and write to output file
 *  @Post Prints maximum element of BST to output file
 */
-cout<<"----------------nmd5----------------------\n";
+//cout<<"----------------nmd5----------------------\n";
    outfile<<BST.findMax() <<"\n";
-   cout<<"----------------nmd6----------------------\n";
+   //cout<<"----------------nmd6----------------------\n";
    outfile <<"\n";
 /**
 *  @Pre  The current BST as inpu and write to output file
 *  @Post Prints all the elements of BST in PostOrder to output file
 */ 
-cout<<"----------------nmd7----------------------\n";
+//cout<<"----------------nmd7----------------------\n";
    BST.printTreePostorder(outfile);
-   cout<<"----------------nmd8----------------------\n";
+   //cout<<"----------------nmd8----------------------\n";
    outfile <<"\n";
 /**
 *  @Pre  The current BST as inpu and write to output file
 *  @Post Prints all the elements of BST in PreOrder to output file
 */
-cout<<"----------------nmd9----------------------\n";
+//cout<<"----------------nmd9----------------------\n";
    BST.printTreePreorder(outfile);
-   cout<<"----------------nmd10----------------------\n";
+  // /out<<"----------------nmd10----------------------\n";
    outfile <<"\n";
 /**
 *  @Pre  The current BST as inpu and write to output file
 *  @Post Check if BST is empty or not
 */
-cout<<"----------------nmd11----------------------\n";
+//cout<<"----------------nmd11----------------------\n";
    outfile <<BST.isEmpty( )<<"\n";
-   cout<<"----------------nmd12----------------------\n";
+   //cout<<"----------------nmd12----------------------\n";
    outfile <<"\n";
 
 //OPen a new file to get some elements from same instance file
@@ -106,7 +106,7 @@ cout<<"----------------nmd11----------------------\n";
   *  @Pre  Current BST as input
   *  @Post Remove first 10 elements from input files from BST
   */
- cout<<"----------------nmd13----------------------\n";
+ //cout<<"----------------nmd13----------------------\n";
   inFile1.open(argv[1]);
   count=0;
   num=0;
@@ -122,7 +122,7 @@ cout<<"----------------nmd11----------------------\n";
   *  @Pre  Current BST as input
   *  @Post check if first 10 elements from input files are present in BST
   */
- cout<<"----------------nmd14----------------------\n";
+ //cout<<"----------------nmd14----------------------\n";
   inFile1.open(argv[1]);
   count=0;
   num=0;
@@ -143,5 +143,5 @@ else
   }
 inFile.close();
 outfile.close();
-cout<<"ending\n";
+//cout<<"ending\n";
 }

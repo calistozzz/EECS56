@@ -18,35 +18,32 @@ template <typename Comparable>
 class myBinarySearchTree
 {
 public:
-    myBinarySearchTree()  //: root{nullptr}
+    myBinarySearchTree() : root{nullptr}
     {
-        root = nullptr;
     }
     myBinarySearchTree(const myBinarySearchTree &rhs) : root{nullptr}
     {
         root = clone(rhs.root);
     }
-    myBinarySearchTree(myBinarySearchTree &&rhs) :root{nullptr}
+    myBinarySearchTree(myBinarySearchTree &&rhs) : root{nullptr}
     {
         root = move(rhs.root);
     }
     ~myBinarySearchTree()
     {
-        cout<<"empty start\n";
         makeEmpty();
     }
 
     const Comparable &findMin() const
     {
-        cout<<"caole4\n";
-        findMin(root);
-        cout<<"coutle5\n";
-       
+        //cout<<"caole4\n";
+        return findMin(root)->element;
+        //cout<<"coutle5\n";
     }
     const Comparable &findMax() const
     {
-        cout<<"caole5\n";
-        findMax(root);
+        //cout<<"caole6\n";
+        return findMax(root)->element;
     }
     bool contains(const Comparable &x) const
     {
@@ -77,55 +74,51 @@ public:
     {
         remove(x, root);
     }
-    void printTreeInorder( ostream & out = cout )
+    void printTreeInorder(ostream &out = cout)
     {
-        if(isEmpty())
+        if (isEmpty())
         {
-
         }
         else
         {
-            printTreeInorder(root,out);
+            printTreeInorder(root, out);
         }
     }
 
-    void printTreePreorder( ostream & out = cout ) const
+    void printTreePreorder(ostream &out = cout) const
     {
-       if(isEmpty())
+        if (isEmpty())
         {
-
         }
         else
         {
-            printTreePreorder(root,out);
+            printTreePreorder(root, out);
         }
     }
 
-    void printTreePostorder( ostream & out = cout ) const
+    void printTreePostorder(ostream &out = cout) const
     {
-        if(isEmpty())
+        if (isEmpty())
         {
-
         }
         else
         {
-            printTreePostorder(root,out);
+            printTreePostorder(root, out);
         }
     }
-
 
     myBinarySearchTree &operator=(const myBinarySearchTree &rhs)
     {
-        if(this != &rhs)
+        if (this != &rhs)
         {
-            root = rhs.root;
+            makeEmpty(root);
+            root = clone(rhs.root);
         }
         return *this;
     }
     myBinarySearchTree &operator=(myBinarySearchTree &&rhs)
     {
-        //root = move(rhs.root);
-        swap(root,rhs.root);
+        root = move(rhs.root);
         return *this;
     }
 
@@ -189,10 +182,10 @@ private:
     }
     BinaryNode *findMin(BinaryNode *t) const
     {
-        cout<<"----------------caole1----------------------\n";
-        if(t == nullptr)
+        //cout<<"----------------caole1----------------------\n";
+        if (t == nullptr)
             return nullptr;
-        if(t->left == nullptr)
+        if (t->left == nullptr)
             return t;
         return findMin(t->left);
     }
@@ -204,40 +197,38 @@ private:
         return t;
     }
 
-    void printTreeInorder( BinaryNode *t, ostream & out ) const
+    void printTreeInorder(BinaryNode *t, ostream &out) const
     {
-       cout<<"caole1\n";
-            if(t != nullptr)
-            {
-                printTreeInorder(t->left, out);
-                out<<t->element<<endl;
-                printTreeInorder(t->right, out);
-            }
+        //cout<<"caole1\n";
+        if (t != nullptr)
+        {
+            printTreeInorder(t->left, out);
+            out << t->element << endl;
+            printTreeInorder(t->right, out);
+        }
     }
 
-    void printTreePreorder( BinaryNode *t, ostream & out ) const
+    void printTreePreorder(BinaryNode *t, ostream &out) const
     {
-        cout<<"caole2\n";
-        
-            if(t != nullptr)
-            {
-                out<<t->element<<endl;
-                printTreePreorder(t->left, out);
-                printTreePreorder(t->right, out);
-            }
-        
+        //cout<<"caole2\n";
+
+        if (t != nullptr)
+        {
+            out << t->element << endl;
+            printTreePreorder(t->left, out);
+            printTreePreorder(t->right, out);
+        }
     }
 
-    void printTreePostorder( BinaryNode *t, ostream & out ) const
+    void printTreePostorder(BinaryNode *t, ostream &out) const
     {
-       cout<<"caole3\n";
-            if(t != nullptr)
-            {
-                printTreePostorder(t->left, out);
-                printTreePostorder(t->right, out);
-                out<<t->element<<endl;
-            }
-    
+        //cout<<"caole3\n";
+        if (t != nullptr)
+        {
+            printTreePostorder(t->left, out);
+            printTreePostorder(t->right, out);
+            out << t->element << endl;
+        }
     }
 
     bool contains(const Comparable &x, BinaryNode *t) const
@@ -266,10 +257,10 @@ private:
 
     void printTree(BinaryNode *t, ostream &out) const
     {
-        if(t != nullptr)
+        if (t != nullptr)
         {
-            printTree( t-> left, out);
-            out<< t->element << endl;
+            printTree(t->left, out);
+            out << t->element << endl;
             printTree(t->right, out);
         }
     }
