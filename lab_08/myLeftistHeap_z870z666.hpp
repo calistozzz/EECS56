@@ -117,7 +117,7 @@ public:
     void printInOrder()
     {
         if (!isEmpty())
-            printInOrder1(root);
+            m_printInOrder(root);
         else
             cout << "the Three is empty!\n";
     }
@@ -127,7 +127,7 @@ public:
         {
             int Maxlevel = getHeight(root);
             for (int i = 0; i <= Maxlevel; i++)
-                printLevelOrder1(root, i);
+                m_printLevelOrder(root, i);
         }
 
     }
@@ -199,26 +199,26 @@ private:
         else
             return new LeftistNode(t->element, clone(t->left), clone(t->right), t->npl);
     }
-    void printInOrder1(LeftistNode *t)
+    void m_printInOrder(LeftistNode *t)
     {
         if (t != NULL)
         {
-            printInOrder1(t->left);
+            m_printInOrder(t->left);
             cout << t->element << endl;
-            printInOrder1(t->right);
+            m_printInOrder(t->right);
         }
     }
-    void printLevelOrder1(LeftistNode *t, int level)
+    void m_printLevelOrder(LeftistNode *t, int level)
     {
         //cout<<"print levelorder1111 in\n";
-        if (t == NULL)
+        if (t == nullptr)
             return;
         if (level == 1)
             cout << t->element << endl;
         else if (level > 1)
         {
-            printLevelOrder1(t->left, level - 1);
-            printLevelOrder1(t->right, level - 1);
+            m_printLevelOrder(t->left, level - 1);
+            m_printLevelOrder(t->right, level - 1);
         }
 
         //cout<<"print levelorder1111 out\n";
