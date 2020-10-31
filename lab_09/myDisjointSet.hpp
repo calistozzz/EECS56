@@ -20,10 +20,8 @@ using namespace std;
 class myDisjointSet
 {
 public:
-    explicit myDisjointSet(int numElements)
-    {
-        s.resize(numElements, -1);
-    }
+    explicit myDisjointSet(int numElements) : s{std::vector<int>(numElements,-1)}
+    {}
     int find(int x) const
     {
         if (s[x] < 0)
@@ -69,7 +67,8 @@ public:
     }
     int getSetSize(int i) const
     {
-        return -s[find(i)];
+        int Absolute = -s[find(i)];
+        return Absolute;
     }
 
 private:
